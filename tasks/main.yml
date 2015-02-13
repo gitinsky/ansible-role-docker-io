@@ -6,3 +6,6 @@
 - name: install Docker
   apt: name=docker.io state=present
   when: ansible_distribution == 'Ubuntu'
+
+- name: start Docker service
+  service: name=docker state=started enabled=yes
