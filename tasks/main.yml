@@ -23,5 +23,5 @@
   when: ansible_os_family == 'RedHat'
 
 - name: start Docker service
-  service: name=docker.io state=started enabled=yes
+  service: name=docker state=started enabled=yes
   when: ansible_distribution == 'Ubuntu'
