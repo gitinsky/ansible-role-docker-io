@@ -9,3 +9,7 @@
 - name: start Docker service
   service: name=docker state=started enabled=yes
   when: ansible_os_family == 'RedHat'
+
+# Debian specific package installations
+- include: Debian.yml
+  when: ansible_distribution == "Debian"
