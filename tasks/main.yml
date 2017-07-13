@@ -1,15 +1,8 @@
 ---
-- name: install Docker
-  yum: name=docker-io state=present
-  when: ansible_os_family == 'RedHat'
-
-- meta: flush_handlers
-  when: ansible_os_family == 'RedHat'
-
-- name: start Docker service
-  service: name=docker state=started enabled=yes
-  when: ansible_os_family == 'RedHat'
-
 # Debian specific package installations
 - include: Debian.yml
   when: ansible_distribution == "Debian"
+
+# RedHat specific package installations
+- include: RedHat.yml
+  when: ansible_os_family == "RedHat"
