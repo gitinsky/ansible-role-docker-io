@@ -1,0 +1,9 @@
+---
+- name: add Docker repo
+  template: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo 
+
+- name: install Docker
+  yum: name=docker-ce state=present
+
+- name: start Docker service
+  service: name=docker state=started enabled=yes
