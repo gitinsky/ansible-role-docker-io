@@ -5,5 +5,13 @@
 - name: install Docker
   yum: name=docker-ce state=present
 
+- name: create /etc/systemd/system/docker.service.d
+  file: state=directory dest=/etc/systemd/system/docker.service.d
+  when: docker_insecure_registries|default("") != ""
+
+- name: put /etc/systemd/system/docker.service.d/docker.conf
+  template: src=docker.conf dest=/etc/systemd/system/docker.service.d/docker.conf
+  when: docker_insecure_registries|default("") != ""
+
 - name: start Docker service
   service: name=docker state=started enabled=yes
