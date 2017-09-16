@@ -1,1 +1,2 @@
 install_kernel_extras_dio: True
+docker_insecure_registries: ""
