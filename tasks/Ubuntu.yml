@@ -5,3 +5,7 @@
 - name: put /etc/systemd/system/docker.service.d/docker.conf
   template: src=docker.conf dest=/etc/systemd/system/docker.service.d/docker.conf
   when: docker_insecure_registries|default("") != ""
+
+- name: put /etc/docker/daemon.json
+  template: src=daemon.json dest=/etc/docker/daemon.json backup=yes
+  notify: systemctl restart docker

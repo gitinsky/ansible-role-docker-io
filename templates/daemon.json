@@ -1,0 +1,4 @@
+{
+  "metrics-addr" : "{{ docker_prom_metrics_ip }}:9323",
+  "experimental" : true
+}
