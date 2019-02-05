@@ -1,3 +1,4 @@
 ---
 dependencies:
-  - { role: docker.ubuntu, pip_version_docker_py: 1.7.0, install_kernel_extras: "{{ install_kernel_extras_dio }}", tags: ['docker'], when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linuxmint' }
+  - { role: docker.ubuntu, pip_version_docker_py: 1.7.0, install_kernel_extras: "{{ install_kernel_extras_dio }}", tags: ['docker'], when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linuxmint') and not use_andrewrothstein_docker }
+  - { role: andrewrothstein.docker, docker_tls: "{{ andrewrothstein_docker_docker_tls }}", when: use_andrewrothstein_docker }
