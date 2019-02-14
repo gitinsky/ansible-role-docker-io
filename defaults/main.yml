@@ -1,5 +1,3 @@
-use_andrewrothstein_docker: False
-andrewrothstein_docker_docker_tls: no
 install_kernel_extras_dio: False
 docker_insecure_registries: ""
 docker_prom_metrics_ip: 127.0.0.1
