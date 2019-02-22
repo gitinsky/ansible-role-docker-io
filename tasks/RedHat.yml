@@ -1,6 +1,6 @@
 ---
 - name: add Docker repo
-  template: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo 
+  template: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
 
 - name: install Docker
   yum: name=docker-ce state=present
