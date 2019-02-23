@@ -1,6 +1,6 @@
 ---
 - name: apt-get update
-  command: apt-get update
+  apt: update_cache=yes
 
 - name: systemctl restart docker
   service: name=docker state=restarted
