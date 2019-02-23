@@ -1,3 +1,19 @@
 ---
+galaxy_info:
+  author: Alex Chistyakov
+  description: Sets up Docker service
+  license:
+    - MIT
+  min_ansible_version: 2.6
+  platforms:
+    - name: Ubuntu
+      versions:
+        - 16.04
+        - 18.04
+
 dependencies:
-  - { role: docker.ubuntu, pip_version_docker_py: 1.7.0, install_kernel_extras: "{{ install_kernel_extras_dio }}", tags: ['docker'], when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linuxmint' }
+  - role: docker.ubuntu
+    pip_version_docker_py: 1.7.0
+    install_kernel_extras: "{{ install_kernel_extras_dio }}"
+    tags: ['docker']
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linuxmint'
