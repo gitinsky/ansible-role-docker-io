@@ -17,3 +17,6 @@
 
 - name: install docker CE
   apt: name=docker-ce state=present update_cache=yes
+
+- name: install docker Python module
+  pip: name=docker
