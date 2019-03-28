@@ -1,3 +1,4 @@
 install_kernel_extras_dio: False
 docker_insecure_registries: ""
 docker_prom_metrics_ip: 127.0.0.1
+docker_use_flannel: False

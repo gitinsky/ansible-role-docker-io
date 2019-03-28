@@ -1,10 +1,11 @@
 - name: create /etc/systemd/system/docker.service.d
   file: state=directory dest=/etc/systemd/system/docker.service.d
-  when: docker_insecure_registries | length > 0
+  when: docker_insecure_registries | length > 0 or docker_use_flannel
 
 - name: put /etc/systemd/system/docker.service.d/docker.conf
   template: src=docker.conf dest=/etc/systemd/system/docker.service.d/docker.conf
-  when: docker_insecure_registries | length > 0
+  when: docker_insecure_registries | length > 0 or docker_use_flannel
+  notify: systemctl restart docker
 
 - name: put /etc/docker/daemon.json
   template: src=daemon.json dest=/etc/docker/daemon.json backup=yes
