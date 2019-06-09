@@ -15,6 +15,7 @@ dependencies:
   - role: docker.ubuntu
     pip_version_docker_py: 1.7.0
     install_kernel_extras: "{{ install_kernel_extras_dio }}"
+    apt_key_url: "https://download.docker.com/linux/ubuntu/gpg"
     external_overrides: "{{ docker_insecure_registries | length > 0 or docker_use_flannel }}"
     tags: ['docker']
     when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linuxmint'
